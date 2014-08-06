@@ -1,29 +1,21 @@
 (function(global) {
+	'use strict';
 
-	function Vector2(x, y) {
-		this.x = x;
-		this.y = y;
+	global.PARTICULAME = global.PARTICULAME ? global.PARTICULAME : {};
+
+	var P = global.PARTICULAME;
+
+	function Particle(domElem) {
+		this.domElem = domElem;
+		this.matrix = new P.Matrix();
 	}
 
-	Vector2.prototype.add = function(vec) {
-		return new Vector2(this.x + vec.x, this.y + vec.y);
-	};
-
-	function getPosition(domElem) {
-		return new Vector2(domElem.offsetLeft, domElem.offsetTop);
+	Particle.prototype.addVector = function addVector(vec) {
+		this.matrix.translate(vec.position.x, vec.position.y, vec.position.z);
+		this.domElem.style.transform = this.matrix.getCSSMatrix();
+		return this.matrix;
 	}
 
-	function setPosition(domElem, vec) {
-		domElem.style.position = 'absolute';
-		domElem.style.left = vec.x + 'px';
-		domElem.style.top = vec.y + 'px';
-		return getPosition(domElem);
-	}
-
-	global.PARTICULAME = {
-		Vector2: Vector2,
-		getPosition: getPosition,
-		setPosition: setPosition
-	};
+	global.PARTICULAME.Particle = Particle;
 
 }(window));

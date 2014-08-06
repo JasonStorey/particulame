@@ -2,19 +2,13 @@
 
 	var document = window.document;
 
-	var test = document.getElementById('test');
+	var particle = new P.Particle(document.getElementById('test'));
 
-	var vector = new P.Vector2(1, 2);
-
-	
+	var vector = new P.Vector(1, 1, 1);
 
 	function animate(t) {
-		var current = P.getPosition(test);
-
-		P.setPosition(test, current.add(vector));
-		
+		particle.addVector(vector);		
 		window.requestAnimationFrame(animate);
-
 	}
 	
 	animate(0);
