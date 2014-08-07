@@ -23,6 +23,22 @@
 		return this.m;
 	};
 
+	Matrix.prototype._set = function _set(index, val) {
+		this.m[index] = val;
+	};
+
+	Matrix.prototype.setX = function setX(x) {
+		this._set(3, x);
+	};
+
+	Matrix.prototype.setY = function setY(y) {
+		this._set(7, y);
+	};
+
+	Matrix.prototype.setZ = function setZ(z) {
+		this._set(11, z);
+	};
+
 	Matrix.prototype.getCSSMatrix = function getCSSMatrix() {
 		var m =[this.m[0], this.m[4], this.m[8],  this.m[12],
 	    		this.m[1], this.m[5], this.m[9],  this.m[13],

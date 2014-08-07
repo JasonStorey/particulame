@@ -5,11 +5,12 @@
 	var particleLeft = new P.Particle(document.getElementById('left'));
 	var particleRight = new P.Particle(document.getElementById('right'));
 
-	var vector = new P.Vector(0, 0, 1);
-
+	var vector = new P.Vector(0, 0, 3);
+	particleLeft.setZ(-10000);
+	
 	function animate(t) {
-		particleLeft.set(vector.x, vector.y, vector.z);		
-		particleRight.set(vector.x, vector.y, vector.z);
+		particleLeft.add(vector);		
+		particleRight.add(vector);
 		window.requestAnimationFrame(animate);
 	}
 	
