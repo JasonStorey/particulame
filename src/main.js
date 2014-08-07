@@ -9,8 +9,8 @@
 	particleLeft.setZ(-10000);
 	
 	function animate(t) {
-		particleLeft.add(vector);		
-		particleRight.add(vector);
+		particleLeft.move(vector);		
+		particleRight.move(vector);
 		window.requestAnimationFrame(animate);
 	}
 	

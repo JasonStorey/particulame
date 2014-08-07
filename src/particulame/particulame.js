@@ -10,7 +10,7 @@
 		this._matrix = new P.Matrix();
 	}
 
-	Particle.prototype.add = function add(vec) {
+	Particle.prototype.move = function move(vec) {
 		this._matrix.translate(vec.x, vec.y, vec.z);
 		this.update();
 	};
