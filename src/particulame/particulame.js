@@ -7,13 +7,13 @@
 
 	function Particle(domElem) {
 		this.domElem = domElem;
-		this.matrix = new P.Matrix();
+		this._matrix = new P.Matrix();
 	}
 
-	Particle.prototype.addVector = function addVector(vec) {
-		this.matrix.translate(vec.position.x, vec.position.y, vec.position.z);
-		this.domElem.style.transform = this.matrix.getCSSMatrix();
-		return this.matrix;
+	Particle.prototype.set = function set(x, y, z) {
+		this._matrix.translate(x, y, z);
+		this.domElem.style.transform = this._matrix.getCSSMatrix();
+		return this._matrix;
 	}
 
 	global.PARTICULAME.Particle = Particle;

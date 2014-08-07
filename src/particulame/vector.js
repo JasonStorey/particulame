@@ -4,15 +4,13 @@
 	global.PARTICULAME = global.PARTICULAME ? global.PARTICULAME : {};
 
 	function Vector(x, y, z) {
-		this.position = {
-			x: x,
-			y: y,
-			z: z
-		};
+		this.x = x;
+		this.y = y;
+		this.z = z;
 	}
 
 	Vector.prototype.add = function(vec) {
-		return new Vector(this.position.x + vec.position.x, this.position.y + vec.position.y, this.position.z + vec.position.z);
+		return new Vector(this.x + vec.x, this.y + vec.y, this.z + vec.z);
 	};
 
 	global.PARTICULAME.Vector = Vector;
