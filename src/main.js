@@ -2,12 +2,14 @@
 
 	var document = window.document;
 
-	var particle = new P.Particle(document.getElementById('test'));
+	var particleLeft = new P.Particle(document.getElementById('left'));
+	var particleRight = new P.Particle(document.getElementById('right'));
 
-	var vector = new P.Vector(1, 1, 1);
+	var vector = new P.Vector(0, 0, 1);
 
 	function animate(t) {
-		particle.addVector(vector);		
+		particleLeft.addVector(vector);		
+		particleRight.addVector(vector);
 		window.requestAnimationFrame(animate);
 	}
 	
