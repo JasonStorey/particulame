@@ -9,18 +9,21 @@
 		this.domElem = options.domElement;
 		this.height = this.domElem.offsetHeight;
 		this.top = this.domElem.offsetTop;
+		this.bottomBoundary = options.floor - this.height - this.top;
+
 		this._matrix = new P.Matrix();
 
 		this._gravityVector = options.gravity;
 		this._velocityVector = options.velocity;
-		this.bottomBoundary = options.floor - this.height - this.top;
+		this._bounceVector = options.bounce;
 	}
 
 	Particle.prototype.move = function move(velocityVector) {
 		velocityVector.add(this._gravityVector);
 		
 		if(this._matrix.getY() + velocityVector.y >= this.bottomBoundary) {
-			velocityVector.set(0,0,0);
+			velocityVector.setY(-velocityVector.y);
+			velocityVector.multiply(this._bounceVector);
 			this._matrix.setY(this.bottomBoundary);
 		}
 

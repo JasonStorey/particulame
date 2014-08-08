@@ -15,6 +15,10 @@
 		this.z = z;
 	};
 
+	Vector.prototype.setY = function setY(y) {
+		this.y = y;
+	};
+
 	Vector.prototype.add = function add(vec) {
 		this.x += vec.x;
 		this.y += vec.y;
@@ -27,6 +31,18 @@
 		this.y -= vec.y;
 		this.z -= vec.z;
 		return this;
+	};
+
+	Vector.prototype.multiply = function multiply(vec) {
+		this.x *= vec.x;
+		this.y *= vec.y;
+		this.z *= vec.z;
+	};
+
+	Vector.prototype.multiplyScalar = function multiplyScalar(scalar) {
+		this.x *= scalar;
+		this.y *= scalar;
+		this.z *= scalar;
 	};
 
 	Vector.prototype.negate = function negate() {
