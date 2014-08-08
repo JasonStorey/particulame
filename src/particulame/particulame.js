@@ -7,14 +7,23 @@
 
 	function Particle(options) {
 		this.domElem = options.domElement;
+		this.height = this.domElem.offsetHeight;
+		this.top = this.domElem.offsetTop;
 		this._matrix = new P.Matrix();
 
 		this._gravityVector = options.gravity;
-		this._velocityVector = options.velocity
+		this._velocityVector = options.velocity;
+		this.bottomBoundary = options.floor - this.height - this.top;
 	}
 
 	Particle.prototype.move = function move(velocityVector) {
 		velocityVector.add(this._gravityVector);
+		
+		if(this._matrix.getY() + velocityVector.y >= this.bottomBoundary) {
+			velocityVector.set(0,0,0);
+			this._matrix.setY(this.bottomBoundary);
+		}
+
 		this._matrix.translate(velocityVector.x, velocityVector.y, velocityVector.z);
 	};
 

@@ -9,6 +9,12 @@
 		this.z = z || 0;
 	}
 
+	Vector.prototype.set = function set(x, y, z) {
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	};
+
 	Vector.prototype.add = function add(vec) {
 		this.x += vec.x;
 		this.y += vec.y;
