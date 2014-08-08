@@ -8,10 +8,20 @@
 	function Particle(domElem) {
 		this.domElem = domElem;
 		this._matrix = new P.Matrix();
+
+		this.gravity = 0.7;
+		this._gravityVector = new P.Vector(0, this.gravity, 0);
 	}
 
-	Particle.prototype.move = function move(vec) {
-		this._matrix.translate(vec.x, vec.y, vec.z);
+	Particle.prototype.move = function move(movementVector) {
+		var vector;
+
+		vector = new P.Vector();
+		
+		vector.add(movementVector);
+		vector.add(this._gravityVector);
+
+		this._matrix.translate(vector.x, vector.y, vector.z);
 		this.update();
 	};
 
@@ -32,6 +42,7 @@
 
 	Particle.prototype.update = function update() {
 		this.domElem.style.transform = this._matrix.getCSSMatrix();
+		this._gravityVector.y += this.gravity;
 	};
 
 	global.PARTICULAME.Particle = Particle;

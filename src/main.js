@@ -5,8 +5,8 @@
 	var particleLeft = new P.Particle(document.getElementById('left'));
 	var particleRight = new P.Particle(document.getElementById('right'));
 
-	var vector = new P.Vector(0, 0, 3);
-	particleLeft.setZ(-10000);
+	var vector = new P.Vector(-4, -10, 10);
+	particleLeft.setZ(-1000);
 	
 	function animate(t) {
 		particleLeft.move(vector);		
