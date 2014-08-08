@@ -22,6 +22,22 @@
 		this.m[11] += z;
 		return this.m;
 	};
+	
+	Matrix.prototype._get = function _get(index) {
+		return this.m[index];
+	};
+
+	Matrix.prototype.getX = function getX(x) {
+		return this._get(3, x);
+	};
+
+	Matrix.prototype.getY = function getY(y) {
+		return this._get(7, y);
+	};
+
+	Matrix.prototype.getZ = function getZ(z) {
+		return this._get(11, z);
+	};
 
 	Matrix.prototype._set = function _set(index, val) {
 		this.m[index] = val;

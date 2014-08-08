@@ -2,15 +2,24 @@
 
 	var document = window.document;
 
-	var particleLeft = new P.Particle(document.getElementById('left'));
-	var particleRight = new P.Particle(document.getElementById('right'));
+	var particleLeft = new P.Particle({
+		domElement: document.getElementById('left'),
+		gravity: new P.Vector(0, 1, 0),
+		velocity: new P.Vector(-7, -10, 16)
+	});
 
-	var vector = new P.Vector(-4, -10, 10);
+	var particleRight = new P.Particle({
+		domElement: document.getElementById('right'),
+		gravity: new P.Vector(0, 1, 0),
+		velocity: new P.Vector(-25, -25, -40)
+	});
+
+
 	particleLeft.setZ(-1000);
 	
 	function animate(t) {
-		particleLeft.move(vector);		
-		particleRight.move(vector);
+		particleLeft.update();		
+		particleRight.update();
 		window.requestAnimationFrame(animate);
 	}
 	

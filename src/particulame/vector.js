@@ -23,6 +23,12 @@
 		return this;
 	};
 
+	Vector.prototype.negate = function negate() {
+		this.x = - this.x;
+		this.y = - this.y;
+		this.z = - this.z;
+	};
+
 	global.PARTICULAME.Vector = Vector;
 
 }(window));
