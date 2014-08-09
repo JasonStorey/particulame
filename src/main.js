@@ -6,7 +6,7 @@
 		domElement: document.getElementById('left'),
 		velocity: new P.Vector(10, -19, 0),
 		gravity: new P.Vector(0, 1, 0),
-		bounce: new P.Vector(-0.7, 0.7, 0.7),
+		bounce: new P.Vector(0.6, 0.3, 0.6),
 		floor: document.body.offsetHeight
 	});
 
@@ -14,7 +14,7 @@
 		domElement: document.getElementById('right'),
 		velocity: new P.Vector(-27, -10, -40),
 		gravity: new P.Vector(0, 1, 0),
-		bounce: new P.Vector(0.8, 0.8, 0.8),
+		bounce: new P.Vector(0.7, 0.4, 0.7),
 		floor: document.body.offsetHeight
 	});
 	

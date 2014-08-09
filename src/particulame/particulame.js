@@ -13,17 +13,17 @@
 
 		this._matrix = new P.Matrix();
 
-		this._gravityVector = options.gravity;
-		this._velocityVector = options.velocity;
-		this._bounceVector = options.bounce;
+		this.gravity = options.gravity;
+		this.velocity = options.velocity;
+		this.bounce = options.bounce;
 	}
 
 	Particle.prototype.move = function move(velocityVector) {
-		velocityVector.add(this._gravityVector);
+		velocityVector.add(this.gravity);
 
 		if(this._matrix.getY() + velocityVector.y >= this.bottomBoundary) {
 			velocityVector.setY(-velocityVector.y);
-			velocityVector.multiply(this._bounceVector);
+			velocityVector.multiply(this.bounce);
 			this._matrix.setY(this.bottomBoundary);
 		}
 
@@ -47,7 +47,7 @@
 	};
 
 	Particle.prototype.update = function update() {
-		this.move(this._velocityVector);
+		this.move(this.velocity);
 		this.domElem.style.transform = this._matrix.getCSSMatrix();
 	};
 
