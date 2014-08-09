@@ -20,11 +20,15 @@
 
 	Particle.prototype.move = function move(velocityVector) {
 		velocityVector.add(this._gravityVector);
-		
+
 		if(this._matrix.getY() + velocityVector.y >= this.bottomBoundary) {
 			velocityVector.setY(-velocityVector.y);
 			velocityVector.multiply(this._bounceVector);
 			this._matrix.setY(this.bottomBoundary);
+		}
+
+		if(velocityVector.lengthManhattan() < 1) {
+			return;
 		}
 
 		this._matrix.translate(velocityVector.x, velocityVector.y, velocityVector.z);

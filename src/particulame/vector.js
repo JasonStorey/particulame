@@ -51,6 +51,10 @@
 		this.z = - this.z;
 	};
 
+	Vector.prototype.lengthManhattan = function lengthManhattan() {
+		return Math.abs(this.x) + Math.abs(this.y) + Math.abs(this.z);
+	};
+
 	global.PARTICULAME.Vector = Vector;
 
 }(window));
